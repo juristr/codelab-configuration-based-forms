@@ -63,7 +63,8 @@ export class FormlyDemoComponent implements OnInit {
               field.templateOptions.options = cities;
             });
         }
-      }
+      },
+      hideExpression: model => !model.nationId
     }
   ];
 

@@ -17,7 +17,11 @@ import { RepeatTypeComponent } from './formly-types/repeat-section.type';
     SharedModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormlyModule.forRoot(),
+    FormlyModule.forRoot({
+      validationMessages: [
+        { name: 'required', message: 'This field is required' }
+      ]
+    }),
     FormlyMaterialModule
   ],
   providers: [],

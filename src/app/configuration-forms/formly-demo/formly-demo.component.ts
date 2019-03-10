@@ -25,7 +25,8 @@ export class FormlyDemoComponent implements OnInit {
       key: 'firstname',
       type: 'input',
       templateOptions: {
-        label: 'Firstname'
+        label: 'Firstname',
+        required: true
       }
     },
     {

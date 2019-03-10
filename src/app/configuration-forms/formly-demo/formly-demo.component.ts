@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { CityService } from 'src/app/services/city.service';
+import { switchMap, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-formly-demo',
@@ -41,6 +42,27 @@ export class FormlyDemoComponent implements OnInit {
       templateOptions: {
         label: 'Nation',
         options: this.cityService.getNations()
+      }
+    },
+    {
+      key: 'cityId',
+      type: 'select',
+      templateOptions: {
+        label: 'City',
+        options: []
+      },
+      hooks: {
+        onInit: (field: FormlyFieldConfig) => {
+          const nationIdCtrl = field.form.get('nationId');
+          nationIdCtrl.valueChanges
+            .pipe(
+              startWith(this.model.cityId),
+              switchMap(nationId => this.cityService.getCities(nationId))
+            )
+            .subscribe(cities => {
+              field.templateOptions.options = cities;
+            });
+        }
       }
     }
   ];

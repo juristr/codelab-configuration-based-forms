@@ -33,6 +33,27 @@ export class FormlyDemoComponent implements OnInit {
         label: 'Age',
         type: 'number'
       }
+    },
+    {
+      key: 'nationId',
+      type: 'select',
+      templateOptions: {
+        label: 'Nation',
+        options: [
+          {
+            label: '--',
+            value: null
+          },
+          {
+            label: 'Italy',
+            value: 1
+          },
+          {
+            label: 'Germany',
+            value: 2
+          }
+        ]
+      }
     }
   ];
 

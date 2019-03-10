@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
+import { CityService } from 'src/app/services/city.service';
 
 @Component({
   selector: 'app-formly-demo',
@@ -39,25 +40,12 @@ export class FormlyDemoComponent implements OnInit {
       type: 'select',
       templateOptions: {
         label: 'Nation',
-        options: [
-          {
-            label: '--',
-            value: null
-          },
-          {
-            label: 'Italy',
-            value: 1
-          },
-          {
-            label: 'Germany',
-            value: 2
-          }
-        ]
+        options: this.cityService.getNations()
       }
     }
   ];
 
-  constructor() {}
+  constructor(private cityService: CityService) {}
 
   ngOnInit() {}
 

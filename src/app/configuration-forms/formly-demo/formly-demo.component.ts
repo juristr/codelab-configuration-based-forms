@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormControl, ValidationErrors } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { CityService } from 'src/app/services/city.service';
 import { switchMap, startWith } from 'rxjs/operators';
@@ -43,6 +43,9 @@ export class FormlyDemoComponent implements OnInit {
       templateOptions: {
         label: 'Nation',
         options: this.cityService.getNations()
+      },
+      validators: {
+        validation: ['onlyItalians']
       }
     },
     {

@@ -18,7 +18,23 @@ export class FormlyDemoComponent implements OnInit {
     phoneNumbers: [{ contactTypeId: 1, number: '' }]
   };
 
-  fields: FormlyFieldConfig[] = [];
+  fields: FormlyFieldConfig[] = [
+    {
+      key: 'firstname',
+      type: 'input',
+      templateOptions: {
+        label: 'Firstname'
+      }
+    },
+    {
+      key: 'age',
+      type: 'input',
+      templateOptions: {
+        label: 'Age',
+        type: 'number'
+      }
+    }
+  ];
 
   constructor() {}
 

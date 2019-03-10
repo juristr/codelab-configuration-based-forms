@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
-import { startWith, switchMap } from 'rxjs/operators';
-import { CityService } from '../../services/city.service';
 
 @Component({
   selector: 'app-formly-demo',
@@ -22,7 +20,7 @@ export class FormlyDemoComponent implements OnInit {
 
   fields: FormlyFieldConfig[] = [];
 
-  constructor(private cityService: CityService) {}
+  constructor() {}
 
   ngOnInit() {}
 
